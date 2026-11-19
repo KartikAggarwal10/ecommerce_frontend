@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setuser } from './userdt';
 import styles from "./login.module.css";
 import { Link } from 'react-router-dom';
+import { apiFetch } from './api';
 function Login() {
   const [x, setx] = useState(0);
   const [nme, stnme] = useState("");
@@ -19,7 +20,7 @@ function Login() {
   }
   function mtc() {
     console.log("nme : " + nme + " password : " + psw)
-    fetch(`/api/user/login`, {
+    apiFetch(`/api/user/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
